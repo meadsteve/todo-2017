@@ -1,0 +1,10 @@
+# Built stuff
+dist/*
+!dist/.gitkeep
+
+# Node stuff
+/node_modules
+
+#IDE stuff
+/*.iml
+/.idea/
