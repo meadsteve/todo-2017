@@ -1,15 +1,7 @@
 'use strict';
 import { h, app } from "hyperapp";
 
-import actions from "./src/actions";
-
-const state = {
-    todos: [
-        {title: "hello item", id: 0}
-    ],
-    nextId: 1,
-    nextTodoTitle:""
-};
+import {emptyState, actions} from "./src/todolist";
 
 const view = ({todos, nextTodoTitle}, {addTodo, setNewTitle}) => (
     <div>
@@ -17,11 +9,11 @@ const view = ({todos, nextTodoTitle}, {addTodo, setNewTitle}) => (
         <button onclick={e => addTodo()}>add</button>
         <ul>
             {
-                state.todos.map((todo) => (<li>{todo.title}</li>))
+                todos.map((todo) => (<li>{todo.text}</li>))
             }
         </ul>
     </div>
 );
 
 
-app({state, view, actions});
+app({state: emptyState, view, actions});
