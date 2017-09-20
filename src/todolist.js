@@ -11,7 +11,7 @@ const actions = {
         updatedTodos.push(state.nextTodo);
         return {
             todos: updatedTodos,
-            nextTodo: {text: "", id: state.nextTodo.Id + 1}
+            nextTodo: {text: "", id: state.nextTodo.id + 1}
         }
     },
     setNewTitle(state, _actions, newText) {
