@@ -1,7 +1,6 @@
 import { h } from "hyperapp";
 
 import {renderTodoList, renderInputBar} from "./todoview";
-import {actions} from './todolist';
 
 describe('View Section: renderTodoList', () => {
     test('Renders an empty <ul /> for an empty list', () => {
