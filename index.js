@@ -5,10 +5,10 @@ import {emptyState, actions} from "./src/todolist";
 import {renderInputBar, renderTodoList} from "./src/todoview";
 
 
-const view = ({todos, nextTodoTitle}, {addTodo, setNewTitle}) => (
+const view = (state, actions) => (
     <div>
-        {renderInputBar({addTodo, setNewTitle})}
-        {renderTodoList(todos)}
+        {renderInputBar(state, actions)}
+        {renderTodoList(state)}
     </div>
 );
 
