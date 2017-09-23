@@ -1,11 +1,13 @@
-'use strict';
+// @flow
 
-const emptyState = {
+import type {Actions, State} from './types';
+
+const emptyState: State = {
     todos: [],
     nextTodo: {text: "", id: 0}
 };
 
-const actions = {
+const actions: Actions = {
     addTodo(state) {
         let updatedTodos = state.todos;
         updatedTodos.push(state.nextTodo);
