@@ -1,8 +1,11 @@
 // @flow
 
+type TodoId = number;
+
 export type Todo = {
     text: string,
-    id: number
+    id: TodoId,
+    done: boolean
 };
 
 // Parts of each state - allows for hinting on partial updates
@@ -20,4 +23,5 @@ export type State = StateTodos & StateNextTodo;
 export type Actions = {
     addTodo: (State) => StateTodos & StateNextTodo,
     setNewTitle: (State, Actions, string) => StateNextTodo,
+    markAsDone: (State, Actions, TodoId) => StateTodos
 };
