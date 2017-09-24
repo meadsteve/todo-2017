@@ -25,10 +25,10 @@ const actions: Actions = {
         }
     },
 
-    markAsDone(state, _actions, todoId) {
+    markAsDone(state, _actions, doneId) {
         return {
             todos: state.todos.map(function(todo: Todo) {
-                if (todo.id === todoId) {
+                if (todo.id === doneId) {
                     todo.done = true;
                 }
                 return todo;
