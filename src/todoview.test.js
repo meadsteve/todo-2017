@@ -14,8 +14,19 @@ describe('View Section: renderTodoList', () => {
             {text: "Drink milk", id: 1}
         ];
         expect(renderTodoList({todos})).toEqual(<ul>
-            <li>Buy milk</li>
-            <li>Drink milk</li>
+            <li style=''>Buy milk</li>
+            <li style=''>Drink milk</li>
+        </ul>);
+    });
+
+    test('Strikes out any done elements - Remeber I said no CSS', () => {
+        const todos = [
+            {text: "Buy milk", id: 0, done: true},
+            {text: "Drink milk", id: 1, done: false}
+        ];
+        expect(renderTodoList({todos})).toEqual(<ul>
+            <li style='strike {text-decoration:line-through;}'>Buy milk</li>
+            <li style=''>Drink milk</li>
         </ul>);
     });
 });

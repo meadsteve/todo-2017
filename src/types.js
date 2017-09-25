@@ -25,3 +25,11 @@ export type Actions = {
     setNewTitle: (State, Actions, string) => StateNextTodo,
     markAsDone: (State, Actions, TodoId) => StateTodos
 };
+
+// Hyperjs converts the callbables slightly (autobinds the state, actions as the
+// first 2 args)  so the type signatures won't match if we hinted on Actions
+export type ViewActions = {
+    addTodo: () => void,
+    setNewTitle: (string) => void,
+    markAsDone: (TodoId) => void
+};
