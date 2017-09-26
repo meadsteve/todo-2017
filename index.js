@@ -11,7 +11,7 @@ import {renderInputBar, renderTodoList} from "./src/todoview";
 const view = (state: State, actions: ViewActions) => (
     <div>
         {renderInputBar(state, actions)}
-        {renderTodoList(state)}
+        {renderTodoList(state, actions)}
     </div>
 );
 

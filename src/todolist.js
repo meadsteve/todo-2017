@@ -26,13 +26,15 @@ const actions: Actions = {
     },
 
     markAsDone(state, _actions, doneId) {
+        let updatedTodos = state.todos;
+        updatedTodos.map(function(todo: Todo) {
+            if (todo.id === doneId) {
+                todo.done = true;
+            }
+            return todo;
+        });
         return {
-            todos: state.todos.map(function(todo: Todo) {
-                if (todo.id === doneId) {
-                    todo.done = true;
-                }
-                return todo;
-            })
+            todos: updatedTodos
         }
     }
 };

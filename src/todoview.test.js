@@ -3,9 +3,12 @@ import { h } from "hyperapp";
 import {renderTodoList, renderInputBar} from "./todoview";
 
 describe('View Section: renderTodoList', () => {
+
+    const actions = {setAsDone: e => {}};
+
     test('Renders an empty <ul /> for an empty list', () => {
         const todos = [];
-        expect(renderTodoList({todos})).toEqual(<ul/>);
+        expect(renderTodoList({todos}, actions)).toEqual(<ul/>);
     });
 
     test('Creates an <li> item for each todo', () => {
@@ -13,20 +16,19 @@ describe('View Section: renderTodoList', () => {
             {text: "Buy milk", id: 0},
             {text: "Drink milk", id: 1}
         ];
-        expect(renderTodoList({todos})).toEqual(<ul>
-            <li style=''>Buy milk</li>
-            <li style=''>Drink milk</li>
+        expect(renderTodoList({todos}, actions)).toEqual(<ul>
+            <li onclick={expect.anything()}>Buy milk</li>
+            <li onclick={expect.anything()}>Drink milk</li>
         </ul>);
     });
 
-    test('Strikes out any done elements - Remeber I said no CSS', () => {
+    test('Removes any done elements', () => {
         const todos = [
             {text: "Buy milk", id: 0, done: true},
             {text: "Drink milk", id: 1, done: false}
         ];
-        expect(renderTodoList({todos})).toEqual(<ul>
-            <li style='strike {text-decoration:line-through;}'>Buy milk</li>
-            <li style=''>Drink milk</li>
+        expect(renderTodoList({todos}, actions)).toEqual(<ul>
+            <li onclick={expect.anything()}>Drink milk</li>
         </ul>);
     });
 });

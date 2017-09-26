@@ -11,14 +11,20 @@ const renderInputBar = ({nextTodo}: State, {addTodo, setNewTitle}: ViewActions) 
     </span>
 );
 
-const renderListItem = (todo: Todo) => (
-    <li style={todo.done ? "strike {text-decoration:line-through;}" : ""}>{todo.text}</li>
+const renderListItem = (todo: Todo, {markAsDone}: ViewActions) => (
+    <li
+        onclick={e => {markAsDone(todo.id)}}
+    >
+        {todo.text}
+    </li>
 );
 
-const renderTodoList = ({todos}: State) => (
+const renderTodoList = ({todos}: State, actions: ViewActions) => (
     <ul>
         {
-            todos.map(renderListItem)
+            todos
+            .filter(todo => ! todo.done)
+            .map(todo => renderListItem(todo, actions))
         }
     </ul>
 );
