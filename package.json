@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test-unit && npm run flow check --all",
+    "test-unit": "jest",
+    "flow": "flow"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,8 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.55.0",
     "jest": "^21.1.0",
     "webpack": "^3.6.0"
   }
